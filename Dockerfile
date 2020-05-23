@@ -18,4 +18,5 @@ RUN curl -sS https://getcomposer.org/installer \
 RUN apt-get update && apt-get install -y zip unzip git graphviz
 
 EXPOSE 80
+
 USER root
