@@ -1,0 +1,16 @@
+{
+    "name": "matsumoto/phing",
+    "authors": [
+        {
+            "name": "Norio",
+            "email": "umanari145@gmail.com"
+        }
+    ],
+    "require": {
+        "phing/phing": "^2.16",
+        "phpdocumentor/phpdocumentor":"~2.8.0",
+        "phpunit/phpunit": "^9.1",
+        "phpmd/phpmd": "^2.8",
+        "squizlabs/php_codesniffer": "^3.5"
+    }
+}

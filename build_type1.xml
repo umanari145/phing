@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="samplePro" default="build">
+
+    <target name="phpunit">
+        <phpunit pharlocation="./vendor/bin/phpunit">
+          <formatter type="plain" usefile="false" />
+          <batchtest>
+            <fileset dir="./tests/">
+                <include name="*.php" />
+            </fileset>
+          </batchtest>
+        </phpunit>
+    </target>
+
+    <target name="phpmd">
+        <phpmd rulesets="cleancode,codesize,controversial,design,naming,unusedcode" >
+          <formatter type="text" usefile="false" />
+              <fileset dir="./">
+                <include name="src/" />
+                <include name="tests/" />
+	      </fileset>
+        </phpmd>
+    </target>
+
+
+    <target name="phpcodesniffer" >
+        <phpcodesniffer standard="PSR2">
+              <fileset dir="./">
+                <include name="src/" />
+                <include name="tests/" />
+	      </fileset>
+    	  <formatter type="full" usefile="false"/>
+        </phpcodesniffer>
+    </target>
+
+    <target name="phpdocument" description="Generate document" >
+        <phpdoc2 title="API Documentation" destdir="./docs" template="responsive-twig" pharlocation="./vendor/bin/phpdoc">
+	     <fileset dir="./">
+                <include name="src/" />
+                <include name="tests/" />
+	     </fileset>
+	</phpdoc2>
+    </target>
+
+    <target name="build" depends="phpdocument,phpunit" />
+</project>
